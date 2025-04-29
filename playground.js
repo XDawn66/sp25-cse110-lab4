@@ -76,14 +76,50 @@
 // };
 // time();
 
-function prinitNums() {
-  console.log(1);
-  setTimeout(function () {
-    console.log("2");
-  }, 1000);
-  setTimeout(function () {
-    console.log("3");
-  }, 0);
-  console.log(4);
+// function prinitNums() {
+//   console.log(1);
+//   setTimeout(function () {
+//     console.log("2");
+//   }, 1000);
+//   setTimeout(function () {
+//     console.log("3");
+//   }, 0);
+//   console.log(4);
+// }
+// prinitNums();
+
+// function sumValues(num1, num2, add) {
+//   let valid = !isNaN(Number(num1)) && !isNaN(Number(num2));
+
+//   if (add && valid) {
+//     let result = 0;
+
+//     result = num1 + num2;
+
+//     return result;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(sumValues(3, 2, true)); // 20
+
+function discountPrices(prices, discount) {
+  if (
+    prices.length === 0 ||
+    typeof discount !== "number" ||
+    typeof prices !== "object"
+  ) {
+    return false;
+  }
+  let discounted = [];
+  const length = prices.length;
+  let discountedPrice = 0;
+  for (let i = 0; i < length; i++) {
+    discountedPrice = prices[i] * (1 - discount);
+    discounted.push(discountedPrice);
+  }
+
+  return discounted;
 }
-prinitNums();
+console.log(discountPrices([10, 20, 30], 0.1)); // [50, 100, 150]
